@@ -75,6 +75,8 @@ trainer = trainers.BpeTrainer(
 
 # 四、读取文本数据
 
+数据集下载链接：https://www.modelscope.cn/datasets/gongjy/minimind_dataset/files
+
 使用预训练数据集训练tokenizer，为了便于演示，这里只读取前100条数据。
 
 ```python
