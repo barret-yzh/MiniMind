@@ -42,7 +42,7 @@ tokenizer.train_from_iterator(texts, trainer=trainer)
 
 tokenizer.decoder = decoders.ByteLevel()
 
-tokenizer_dir = os.path.join(os.path.dirname(__file__), '..', 'model')
+tokenizer_dir = os.path.join(os.path.dirname(__file__), '..', 'model/tokenizer')
 os.makedirs(tokenizer_dir, exist_ok=True)
 tokenizer.save(os.path.join(tokenizer_dir, "tokenizer.json"))
 tokenizer.model.save(tokenizer_dir)

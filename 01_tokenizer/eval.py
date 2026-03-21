@@ -2,7 +2,7 @@ def eval_tokenizer():
     from transformers import AutoTokenizer
     import os
     # 加载预训练的tokenizer
-    model_dir = os.path.join(os.path.dirname(__file__), '..', 'model')
+    model_dir = os.path.join(os.path.dirname(__file__), '..', 'model/tokenizer')
     tokenizer = AutoTokenizer.from_pretrained(model_dir)
 
     messages = [

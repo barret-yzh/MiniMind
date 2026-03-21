@@ -129,7 +129,7 @@ tokenizer.decoder = decoders.ByteLevel()
 - 训练语料来自 pretrain_hq.jsonl 的 text 字段（仅取前 100 条样本），分词器的 “拆词规则” 是基于这部分语料的字节频率统计出来的。
 
 ```python
-tokenizer_dir = os.path.join(os.path.dirname(__file__), '..', 'model')
+tokenizer_dir = os.path.join(os.path.dirname(__file__), '..', 'model/tokenizer')
 os.makedirs(tokenizer_dir, exist_ok=True)
 tokenizer.save(os.path.join(tokenizer_dir, "tokenizer.json"))
 tokenizer.model.save(tokenizer_dir)
