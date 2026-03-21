@@ -1,6 +1,7 @@
 
 # 一、Sinusoidal PE是什么？
-在Transformer原始论文《Attention is All You Need》中，作者使用了固定的**正余弦位置编码**Sinusoidal PE来为模型引入位置信息。其核心思想是利用不同频率的正弦波和余弦波对每个位置进行编码，具体公式如下：
+在Transformer原始论文《Attention is All You Need》中，作者使用了固定的**正余弦位置编码**Sinusoidal PE来为模型引入位置信息。其核心思想是利用不同频率的正弦波 and 余弦波对每个位置进行编码，具体公式如下：
+
 $$
 \text{PE}_{(pos, 2i)} = \sin\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right) \\
 \text{PE}_{(pos, 2i+1)} = \cos\left(\frac{pos}{10000^{2i/d_{\text{model}}}}\right)
@@ -81,12 +82,13 @@ print(pe.shape)# (120, 8)
 正余弦位置编码具有远程衰减的特性：对于一个序列中每个token的向量，在对每个token施加PE时，从序列token视角来看，每个token向量的低维元素(i较小)在相邻token之间的变化比较快，而高维(i较大)则比较慢。
 
 举个例子，假设$d_{\text{model}} = 512$，$i = 256$，所以分母为$\frac{1}{10000^1} = 10^{-4}$。考虑两个位置：pos = 1000 和 pos = 1001，计算两者编码差值：
-   
+
 $$
 \Delta = \sin(10^{-4} \cdot 1001) - \sin(10^{-4} \cdot 1000)
 $$
 
 也就是：
+
 $$
 \Delta = \sin(0.1001) - \sin(0.1000) \approx 0.0998337 - 0.0998334 = 0.0000003
 $$
